@@ -1,6 +1,9 @@
 package view;
 
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainForm extends javax.swing.JFrame {
@@ -9,7 +12,8 @@ public class MainForm extends javax.swing.JFrame {
         initComponents();
         setTitle("blackjack");
     }
-    
+    String msg = "";
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,8 +43,8 @@ public class MainForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemMegnyit = new javax.swing.JMenuItem();
-        jMenuItemMentes = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jkockazat = new javax.swing.JRadioButtonMenuItem();
         jnemkockazat = new javax.swing.JRadioButtonMenuItem();
@@ -48,6 +52,11 @@ public class MainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlackJack");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                MainForm.this.windowClosing(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ellenfél"));
 
@@ -175,13 +184,11 @@ public class MainForm extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemMegnyit);
 
-        jMenuItemMentes.setSelected(true);
-        jMenuItemMentes.setText("Mentés");
-        jMenu1.add(jMenuItemMentes);
+        jMenuItem1.setText("Mentes");
+        jMenu1.add(jMenuItem1);
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Kilépés");
-        jMenu1.add(jCheckBoxMenuItem1);
+        jMenuItem2.setText("Kilépés");
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -243,11 +250,33 @@ public class MainForm extends javax.swing.JFrame {
     private void jkockazatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jkockazatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jkockazatActionPerformed
+    private void felugroablak() {
 
+    }
     private void jMenuItemMegnyitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMegnyitActionPerformed
-        JFileChooser megnyit= new JFileChooser();
-        megnyit.showOpenDialog(jPanel1);
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(this);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            JOptionPane.showMessageDialog(null, "This a vaild file",
+                    "Display Message",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No file was selected",
+                    "Display Message",
+                    JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItemMegnyitActionPerformed
+    }
+    private void windowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_windowClosing
+         msg += "Biztos ki akar lépni?";
+        String[] valasz = {"igen", "nem"};
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("../res/ikon.jpg"));
+        
+        int ertesites = JOptionPane.showOptionDialog(null, msg, "kilépés", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, icon, valasz, valasz[1]);
+        if (ertesites == 0) {
+            System.exit(WIDTH);
+        }
+    }//GEN-LAST:event_windowClosing
+    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -276,10 +305,10 @@ public class MainForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainForm().setVisible(true);
-             
+
             }
             JFileChooser j = new JFileChooser();
-            
+
         });
     }
 
@@ -291,7 +320,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -300,8 +328,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemMegnyit;
-    private javax.swing.JCheckBoxMenuItem jMenuItemMentes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
