@@ -1,11 +1,15 @@
 package view;
 
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+
 public class MainForm extends javax.swing.JFrame {
 
     public MainForm() {
         initComponents();
+        setTitle("blackjack");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -15,6 +19,8 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -29,6 +35,15 @@ public class MainForm extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItemMegnyit = new javax.swing.JMenuItem();
+        jMenuItemMentes = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jkockazat = new javax.swing.JRadioButtonMenuItem();
+        jnemkockazat = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BlackJack");
@@ -85,7 +100,7 @@ public class MainForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel1))
                             .addComponent(jLabel2))
-                        .addGap(0, 21, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,7 +112,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -107,8 +122,11 @@ public class MainForm extends javax.swing.JFrame {
         jCheckBox1.setSelected(true);
         jCheckBox1.setText("Kilépésnél ment");
 
+        buttonGroup2.add(jRadioButton1);
         jRadioButton1.setText("lapokat felsorol");
 
+        buttonGroup2.add(jRadioButton2);
+        jRadioButton2.setSelected(true);
         jRadioButton2.setText("lapok összértéke");
 
         jButton3.setText("Mentés");
@@ -145,6 +163,48 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Blackjack-singlehand.jpg"))); // NOI18N
+
+        jMenu1.setText("File");
+
+        jMenuItemMegnyit.setText("Megnyitas");
+        jMenuItemMegnyit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMegnyitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemMegnyit);
+
+        jMenuItemMentes.setSelected(true);
+        jMenuItemMentes.setText("Mentés");
+        jMenu1.add(jMenuItemMentes);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Kilépés");
+        jMenu1.add(jCheckBoxMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Stratégia");
+
+        buttonGroup1.add(jkockazat);
+        jkockazat.setSelected(true);
+        jkockazat.setText("Kockazat");
+        jkockazat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jkockazatActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jkockazat);
+
+        buttonGroup1.add(jnemkockazat);
+        jnemkockazat.setText("Nem kockázat");
+        jMenu2.add(jnemkockazat);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,12 +216,17 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,6 +239,15 @@ public class MainForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jkockazatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jkockazatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jkockazatActionPerformed
+
+    private void jMenuItemMegnyitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMegnyitActionPerformed
+        JFileChooser megnyit= new JFileChooser();
+        megnyit.showOpenDialog(jPanel1);
+    }//GEN-LAST:event_jMenuItemMegnyitActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -202,24 +276,38 @@ public class MainForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainForm().setVisible(true);
+             
             }
+            JFileChooser j = new JFileChooser();
+            
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemMegnyit;
+    private javax.swing.JCheckBoxMenuItem jMenuItemMentes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButtonMenuItem jkockazat;
+    private javax.swing.JRadioButtonMenuItem jnemkockazat;
     // End of variables declaration//GEN-END:variables
 }
