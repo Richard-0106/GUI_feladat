@@ -188,6 +188,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Kilépés");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -276,7 +281,17 @@ public class MainForm extends javax.swing.JFrame {
             System.exit(WIDTH);
         }
     }//GEN-LAST:event_windowClosing
-    
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+          msg += "Biztos ki akar lépni?";
+        String[] valasz = {"igen", "nem"};
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("../res/ikon.jpg"));
+        
+        int ertesites = JOptionPane.showOptionDialog(null, msg, "kilépés", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, icon, valasz, valasz[1]);
+        if (ertesites == 0) {
+            System.exit(WIDTH);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
